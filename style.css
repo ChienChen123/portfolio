@@ -95,6 +95,8 @@ body * { /* body + * significa que irá aplicar para todos que estão dentro do 
     left:0;
     z-index: 1;
     transform: translateY(-50%);
+
+    animation: slide-back 0.2s;
     
 }
 
@@ -110,8 +112,11 @@ body * { /* body + * significa que irá aplicar para todos que estão dentro do 
 }
 
 .light #switch button{
-    right: 0;
-    left: initial; /* ele volta ao posicionamento inicial*/
+    animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover{
+    outline: 8px solid var(--highlight-color);
 }
 
 
@@ -201,5 +206,25 @@ footer a:hover{
 
     .light {
         --bg-url: url(./assets/mobile/bg-desktop-light.jpg);
+    }
+}
+
+/*animation*/
+
+@keyframes slide-in{
+    from{
+        left:0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-back{
+    from{
+        left: 50%;
+    }
+    to{
+        left 0;
     }
 }
